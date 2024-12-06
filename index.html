@@ -1,96 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aerodynamics in Aircraft Design</title>
     <style>
+        /* General page styles */
         body {
             font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
             line-height: 1.6;
+        }
+
+        header {
+            background-color: #003A5C;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+
+        h2, h3 {
+            color: #003A5C;
+        }
+
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        main {
             margin: 20px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
         }
 
         section {
+            margin-bottom: 40px;
+        }
+
+        figcaption {
+            font-style: italic;
+            margin-top: 10px;
+        }
+
+        #reference-list ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #reference-list li {
+            padding: 5px;
+            font-size: 1.1em;
+        }
+
+        #reference-list li a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        footer {
+            text-align: center;
+            background-color: #003A5C;
+            color: white;
+            padding: 10px;
+            font-size: 0.9em;
+        }
+
+        article {
             margin-bottom: 20px;
         }
 
-        #word-count {
-            font-weight: bold;
-            margin-top: 20px;
+        article h3 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        article p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            main {
+                margin: 0;
+                padding: 15px;
+            }
+
+            h2, h3 {
+                font-size: 1.5em;
+            }
+
+            article p {
+                font-size: 1em;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Abstract Section -->
-    <section id="abstract">
-        <h2>Abstract</h2>
-        <p>Since the invention of the first aeroplane, many engineers have been finding ways to improve the structure of aeroplanes and aircraft in general. This paper is designed to look into what discoveries some engineers have made and what the result of using these concept ideas were. The paper is divided into 4 main sections: drag, weight, thrust, and lift. In each section, an idea has been covered on how we could change the structure of an aircraft, like making the wings on a plane more angled to get a lift force from the plane.</p>
-    </section>
+    <header>
+        <img src="WebBanner2023.png" alt="Banner" width="900" height="250">
+        <h1>Aerodynamics in Aircraft Design</h1>
+    </header>
 
-    <!-- Introduction Section -->
-    <section id="introduction">
-        <h2>Introduction</h2>
-        <p>Since the invention of the aeroplane, many engineers have tried to find more effective ways to improve the design of aircraft to achieve extraordinary advancements. Because of these innovations, we have created aircraft like the Concorde, the first commercial aeroplane that was able to surpass sound, reaching a speed of 2,158 km/h. We were also able to make fighter jets like the North American X-15 and MiG-25 Foxbat, which were able to reach speeds of 7274 km/h and 3000 km/h. Engineers were able to make aircraft reach speeds with the understanding of how aerodynamics works. This paper is designed to help understand how these engineers were able to use aerodynamics to aid in the design of the aircraft.</p>
-    </section>
+    <main>
+        <!-- Adding last update section -->
+        <!-- ////////////////////////////////////////////////////////////////////////// -->
+        <!-- ///////////////////// Last commit time display /////////////////////////// -->
+        <!-- ////////////////////////////////////////////////////////////////////////// -->
+        <div id="last-updated">Loading last update time...</div>
+        <!-- Verify Button -->
+        <button onclick="verifyLastUpdatedTime()" style="display: block; margin: 10px auto; padding: 8px 16px;">
+            Verify Last Modified Time
+        </button>
+        <script>
+            async function getLastUpdatedTime() {
+                const username = 'nr0025';
+                const repo = 'FY0025';
 
-    <!-- Drag Section -->
-    <section id="drag">
-        <h2>Drag</h2>
-        <p>One main issue in trying to get planes to high speeds is the drag force, as it hinders the acceleration of the aircraft. Engineers have formulated the concept of using more advanced materials and changing the structural design of the aircraft to combat this. This concept is further studied in the paper “Review on the Drag Reduction Technologies in Aircraft” by A.K. Mubarak and P.S. Tide. The authors explain overcoming the drag force by using “riblets with symmetric v-grooves (height equal to spacing) with adhesive-backed film manufactured by the 3M company (USA) have been widely investigated” (Mubarak & Tide, 2024). The results showed “colossal consistency with regard to the degree of drag reduction as well as certain aspects of flow structure” (Mubarak & Tide, 2024). The design of the v-grooves is carefully optimized to provide optimal drag reduction. Another concept explored is Laminar Flow Control (LFC), which aims to reduce drag by streamlining the aircraft. The paper “Aircraft Drag Reduction—a Review” by D.M. Bushnell states, “LFC, with ‘natural’ laminar flow defined by pressure gradient-controlled/delayed transition and ‘forced’ or active laminar flow obtained via suction. This technology offered large gains in aircraft performance and was actively pursued, at various times, in many countries” (Bushnell, 2024). LFC employs two main techniques to delay the transition from laminar to turbulent flow: natural laminar flow, which uses pressure gradients to control and delay transition, and active laminar flow, which uses suction to achieve the same effect. These methods significantly enhance aircraft performance and have been widely researched globally.</p>
-    </section>
+                const url = `https://api.github.com/repos/${username}/${repo}/commits`;
+                try {
+                    const response = await fetch(url, {
+                        method: 'GET',
+                        headers: {
+                            'Accept': 'application/vnd.github.v3+json',
+                        }
+                    });
+                    if (!response.ok) {
+                        throw new Error(`Error fetching data: ${response.status} - ${response.statusText}`);
+                    }
+                    const commits = await response.json();
+                    if (commits && commits.length > 0) {
+                        const lastCommitDate = new Date(commits[0].commit.committer.date);
 
-    <!-- Weight Section -->
-    <section id="weight">
-        <h2>Weight</h2>
-        <p>Even though the weight of the aircraft may seem insignificant compared to other factors like thrust and lift, it can still cause issues like higher fuel usage, as more energy is needed to lift a heavier plane. Engineers have proposed the idea of changing the wing's structure to reduce weight. In the paper "Loads Analysis and Structural Optimization of a High Aspect Ratio, Composite Wing Aircraft", they tried to change the weight distribution of the wing. “A significant amount of weight reduction is observable when using composite materials for the primary structure” (Sinha et al., 2024). The structure of the wing and redistributing the weight can help the aircraft with other factors like fuel efficiency.</p>
-    </section>
+                        // Displaying the time on load
+                        document.getElementById('last-updated').innerText = `Last Modified Time: ${lastCommitDate.toLocaleString()}`;
+                    } else {
+                        document.getElementById('last-updated').innerText = 'No commits found in the repository.';
+                    }
+                } catch (error) {
+                    console.error('Error fetching the last updated time:', error);
+                    document.getElementById('last-updated').innerText = 'Error fetching update time. Please check the repository details.';
+                }
+            }
+            // Function to verify the last update time by re-fetching it from the API
+            async function verifyLastUpdatedTime() {
+                document.getElementById('last-updated').innerText = 'Verifying...';
+                await getLastUpdatedTime();
+                alert("Last modified time has been successfully verified from GitHub API.");
+            }
+            // Initial load to display the time on page load
+            window.onload = getLastUpdatedTime;
+        </script>
 
-    <!-- Thrust Section -->
-    <section id="thrust">
-        <h2>Thrust</h2>
-        <p>Thrust is the driving force generated by the aircraft’s engines. As engineers, to help aircraft reach high speeds, we need to maximize the thrust force experienced by the aircraft after lift-off. One main idea most engineers focus on is changing the entire engine's design. Some ideas engineers keep in mind when changing the engine design include using more advanced materials. Using advanced materials helps increase the force of thrust as less energy is needed. The article "Advanced Materials and Coatings for Future Gas Turbine Applications" by Christoph Leyens references a material known as TBC which “consist of thin ceramic layers of low thermal conductivity - typically partially stabilized zirconia - which are applied on aerofoil surfaces that just have a metallic corrosion resistant coating.” Leyens (2024) states, “Application of the TBCs enables increasing engine performance/thrust by either increasing the gas temperature or reducing the cooling air flow.” Overall, we could use more advanced materials like TBC so that we can make aircraft reach high speeds as less energy is needed to move the aircraft.</p>
-    </section>
+        <section id="introduction">
+            <h2>Introduction</h2>
+            <p id="Introduction_InText">
+                Since the invention of the aeroplane, many engineers have tried to find more effective ways to help change the design of the aircraft such 
+                that it can achieve extraordinary achievements. Because of these changes, we were able to create such aircraft as the Concorde, the first 
+                commercial aeroplane that was able to surpass sound, reaching a speed of 2,158 km/h. We were also able to make fighter jets like the 
+                North American X-15 and MiG-25 Foxbat, which reached speeds like 7,274 km/h and 3,000 km/h. Engineers were able to make aircraft reach 
+                such speeds with the understanding of how aerodynamics works. This paper is designed to help understand how these engineers used aerodynamics 
+                to aid in aircraft design.
+            </p>
+        </section>
 
-    <!-- Lift Section -->
-    <section id="lift">
-        <h2>Lift</h2>
-        <p>The lift force opposes the weight of the aircraft, enabling it to fly. Engineers have designed most aircraft to use wings to create lift. This is done by angling the wing so that when in contact with the wind, it generates a vertical upward force and a horizontal force. The paper "Evolutionary Understanding of Airfoil Lift" by Tianshu Liu explains this concept, stating that “When velocity at the upper surface is larger than that at the lower surface, the pressure difference between the upper and lower surfaces generates positive lift in the upward direction” (Liu, 2024). Therefore, keeping the wing at an angle is a vital part of the plane's mechanics.</p>
-    </section>
+        <section id="content">
+            <h2>Content</h2>
+            <article id="Analysis_InText">
+                <h3>Drag</h3>
+                <p>
+                    One main issue in trying to get planes to high speeds is the drag force, as it hinders the acceleration of the aircraft. Engineers have 
+                    formulated the concept of using more advanced materials and changing the structural design of the aircraft to combat this. This concept is 
+                    further studied in the paper ...
+                </p>
+            </article>
+        </section>
 
-    <!-- Conclusion Section -->
-    <section id="conclusion">
-        <h2>Conclusion</h2>
-        <p>Aerodynamics plays a pivotal role in the design and performance of modern aircraft. By breaking down how most aircraft are designed based on the fundamental forces, we can see how an aircraft might implement certain features to comply with aerodynamics. Research into finding more effective ways to make aircraft more efficient will continue to drive innovation, making aircraft safer and more capable.</p>
-    </section>
+        <!-- Adding Word Count functionality -->
+        <!-- ////////////////////////////////////////////////////////////////////////// -->
+        <!-- ///////////////////////////// Word Count ///////////////////////////////// -->
+        <!-- ////////////////////////////////////////////////////////////////////////// -->
+        <p id="totalWordCount"></p>
+        <hr>
+        <script>
+            function displayWordCount(sectionId) {
+                const text = document.getElementById(sectionId).textContent;
+                const wordArray = text.trim().split(/\s+/);
+                return wordArray.length;
+            }
 
-    <!-- Word Count Display -->
-    <div id="word-count">Word count: 0</div>
+            function displayTotalWordCount() {
+                const IntroductionCount = displayWordCount("Introduction_InText");
+                const AnalysisCount = displayWordCount("Analysis_InText");
+                const totalWordCount = IntroductionCount + AnalysisCount;
+                document.getElementById("totalWordCount").innerText = `Total word count: ${totalWordCount}`;
+            }
 
-    <!-- Script to Count Words -->
-    <script>
-        function countWords() {
-            // Get the text content from all sections of the article
-            let content = '';
-            const sections = document.querySelectorAll('section');
-            sections.forEach(section => {
-                content += section.innerText + " ";
-            });
+            // Call word count calculation on page load
+            window.onload = () => {
+                displayTotalWordCount();
+                getLastUpdatedTime(); // Ensure both onload functions run
+            };
+        </script>
+    </main>
 
-            // Remove extra spaces and count the words
-            let words = content.trim().split(/\s+/); // Split by spaces, tabs, and newlines
-            let wordCount = words.length;
-
-            // Display the word count
-            document.getElementById('word-count').innerText = 'Word count: ' + wordCount;
-        }
-
-        // Call the countWords function when the page loads
-        window.onload = countWords;
-    </script>
+    <footer>
+        <p>&copy; 2024 Aerodynamics Research</p>
+    </footer>
 </body>
 </html>
-
 
 
 
