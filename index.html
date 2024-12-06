@@ -71,16 +71,14 @@
     <script>
         function countWords() {
             // Get the text content from all sections of the article
-            let content = document.getElementById('abstract').innerText + " " +
-                          document.getElementById('introduction').innerText + " " +
-                          document.getElementById('drag').innerText + " " +
-                          document.getElementById('weight').innerText + " " +
-                          document.getElementById('thrust').innerText + " " +
-                          document.getElementById('lift').innerText + " " +
-                          document.getElementById('conclusion').innerText;
+            let content = '';
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                content += section.innerText + " ";
+            });
 
-            // Split the text into words and count them
-            let words = content.split(/\s+/); // Split by spaces, tabs, and newlines
+            // Remove extra spaces and count the words
+            let words = content.trim().split(/\s+/); // Split by spaces, tabs, and newlines
             let wordCount = words.length;
 
             // Display the word count
