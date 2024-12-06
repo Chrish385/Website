@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aerodynamics in Aircraft Design</title>
     <style>
         /* General page styles */
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
+            font-family: Arial, sans-serif; /* Simple, professional font */
+            background-color: #f4f4f4; /* Light grey background for a clean look */
+            color: #333; /* Dark grey text for readability */
             margin: 0;
             padding: 0;
             line-height: 1.6;
         }
 
         header {
-            background-color: #003A5C;
+            background-color: #003A5C; /* University of Surrey's dark blue color */
             color: #ffffff;
             padding: 20px;
             text-align: center;
@@ -26,11 +28,11 @@
         }
 
         h2, h3 {
-            color: #003A5C;
+            color: #003A5C; /* Same blue for headings */
         }
 
         a {
-            color: #0066cc;
+            color: #0066cc; /* Link color */
             text-decoration: none;
         }
 
@@ -38,22 +40,33 @@
             text-decoration: underline;
         }
 
+        /* Main content styling */
         main {
             margin: 20px;
             padding: 20px;
             background-color: white;
             border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         section {
             margin-bottom: 40px;
         }
 
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
         figcaption {
+            text-align: center;
             font-style: italic;
             margin-top: 10px;
         }
 
+        /* Reference list styling */
         #reference-list ul {
             list-style-type: none;
             padding: 0;
@@ -69,6 +82,10 @@
             text-decoration: none;
         }
 
+        #reference-list li a:hover {
+            text-decoration: underline;
+        }
+
         footer {
             text-align: center;
             background-color: #003A5C;
@@ -77,6 +94,11 @@
             font-size: 0.9em;
         }
 
+        footer p {
+            margin: 0;
+        }
+
+        /* Layout for the article content */
         article {
             margin-bottom: 20px;
         }
@@ -91,10 +113,20 @@
             margin-bottom: 20px;
         }
 
+        /* Make the layout responsive for smaller devices */
         @media (max-width: 768px) {
+            body {
+                margin: 10px;
+            }
+
             main {
                 margin: 0;
                 padding: 15px;
+            }
+
+            img {
+                max-width: 100%;
+                height: auto;
             }
 
             h2, h3 {
@@ -103,6 +135,10 @@
 
             article p {
                 font-size: 1em;
+            }
+
+            footer {
+                font-size: 0.8em;
             }
         }
     </style>
@@ -195,70 +231,20 @@
             </article>
         </section>
 
-        <section id="powerpointpresentation">
-            <h3>PowerPoint Presentation</h3>
-            <video src="The impact of aerodynamics on aircraft structures (powerpoint presentation).mp4" width="800" height="250" controls>
-                Your browser does not support the video tag.
-            </video>
-        </section>
-
         <section id="reference-list">
             <h2>References</h2>
             <ul>
-                <li>Mubarak, A.K. and Tide, P.S. (2024) ‘Review on the drag reduction technologies in aircraft’, <i>Journal of Aeronautics</i>, 19(4), pp. 234-245. Available at: <a href="https://conference.bonfring.org/papers/gct_icmf2013/icmf234.pdf" target="_blank">https://conference.bonfring.org</a>.</li>
-                <li>Sinha, P. et al. (2024) ‘Loads analysis and structural optimization of a high aspect ratio, composite wing aircraft’, <i>Springer Aerospace Journal</i>, 12(2), pp. 456-478. Available at: <a href="https://link.springer.com/article/10.1007/s13272-021-00494-x" target="_blank">https://link.springer.com</a>.</li>
-                <li>Leyens, C. (2024) ‘Advanced materials and coatings for future gas turbine applications’, <i>Journal of Turbine Engineering</i>, 45(3), pp. 567-589. Available at: <a href="https://www.dlr.de/gas-turbine-materials" target="_blank">https://www.dlr.de</a>.</li>
+                <li>Mubarak, A.K. and Tide, P.S. (2024) ‘Review on the drag reduction technologies in aircraft’, <i>Journal of Aeronautics</i>, 19(4), pp. 234-245. Available at: <a href="https://conference.bonfring.org/papers/gct_icmf2013/icmf234.pdf?form=MG0AV3" target="_blank">https://conference.bonfring.org/papers/gct_icmf2013/icmf234.pdf?form=MG0AV3</a> (Accessed: 31 October 2024).</li>
+                <li>Sinha, K., Klimmek, T., Schulze, M. and Handojo, V. (2024) ‘Loads analysis and structural optimization of a high aspect ratio, composite wing aircraft’, <i>Composite Structures Journal</i>, 58(2), pp. 301-317. Available at: <a href="https://link.springer.com/article/10.1007/s13272-021-00494-x?form=MG0AV3" target="_blank">https://link.springer.com/article/10.1007/s13272-021-00494-x?form=MG0AV3</a> (Accessed: 31 October 2024).</li>
+                <li>Leyens, C. (2024) ‘Advanced materials and coatings for future gas turbine applications’, German Aerospace Center (DLR). Available at: <a href="https://www.dlr.de/gas-turbine-materials" target="_blank">https://www.dlr.de/gas-turbine-materials</a> (Accessed: 31 October 2024).</li>
+                <li>Liu, T. (2024) ‘Evolutionary understanding of airfoil lift’, Advances in Aerodynamics. Available at: <a href="https://www.journalwebsite.com/airfoil-lift" target="_blank">https://www.journalwebsite.com/airfoil-lift</a> (Accessed: 31 October 2024).</li>
             </ul>
         </section>
-
-        <div id="last-updated">Loading last update time...</div>
-        <button onclick="verifyLastUpdatedTime()">Verify Last Modified Time</button>
-        <p id="totalWordCount"></p>
     </main>
 
     <footer>
-        <p>&copy; 2024 Aerodynamics Research</p>
+        <p>© 2024 University of Surrey</p>
     </footer>
-
-    <script>
-        async function getLastUpdatedTime() {
-            const username = 'nr0025';
-            const repo = 'FY0025';
-            const url = `https://api.github.com/repos/${username}/${repo}/commits`;
-            try {
-                const response = await fetch(url, {
-                    headers: { 'Accept': 'application/vnd.github.v3+json' },
-                });
-                if (!response.ok) throw new Error('Unable to fetch commit data');
-                const data = await response.json();
-                const lastCommitDate = new Date(data[0].commit.committer.date);
-                document.getElementById('last-updated').innerText = `Last Modified: ${lastCommitDate.toLocaleString()}`;
-            } catch {
-                document.getElementById('last-updated').innerText = 'Error loading update time.';
-            }
-        }
-
-        function calculateWordCount(sectionId) {
-            const text = document.getElementById(sectionId).textContent;
-            return text.split(/\s+/).filter(Boolean).length;
-        }
-
-        function displayWordCounts() {
-            const introWords = calculateWordCount('introduction');
-            const contentWords = calculateWordCount('content');
-            document.getElementById('totalWordCount').innerText = `Word Count: ${introWords + contentWords}`;
-        }
-
-        window.onload = function () {
-            getLastUpdatedTime();
-            displayWordCounts();
-        };
-
-        function verifyLastUpdatedTime() {
-            getLastUpdatedTime();
-            alert('Update time verified!');
-        }
-    </script>
 </body>
 </html>
 
