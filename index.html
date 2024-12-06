@@ -277,29 +277,47 @@
 <hr>
 <script>
   // Function to calculate and display word count for a specified section
-  function displayWordCount(sectionId, outputId) {
+  function displayWordCount(sectionId) {
     // Get the text content from the specified section
-    const text = document.getElementById(sectionId).textContent;
+    const text = document.getElementById(sectionId).textContent || "";
     // Split text into words based on spaces and filter out any empty strings
-    const wordArray = text.trim().split(/\s+/);
+    const wordArray = text.trim().split(/\s+/).filter(word => word.length > 0);
     // Count the words
-    const wordCount = wordArray.length;
-    // Return the word count for summing purposes
-    return wordCount;
+    return wordArray.length;
   }
+
   // Function to calculate and display total word count from selected sections
   function displayTotalWordCount() {
     // Calculate word count for each section and accumulate the total
-    const IntroductionCount = displayWordCount("Introduction_InText");
-    const AnalysisCount = displayWordCount("Analysis_InText");
+    const introductionCount = displayWordCount("introduction");
+    const dragCount = displayWordCount("drag");
+    const weightCount = displayWordCount("weight");
+    const thrustCount = displayWordCount("thrust");
+    const liftCount = displayWordCount("lift");
+    const materialsCount = displayWordCount("materials");
+
     // Calculate the sum of all selected sections
-    const totalWordCount = IntroductionCount + AnalysisCount;
+    const totalWordCount =
+      introductionCount +
+      dragCount +
+      weightCount +
+      thrustCount +
+      liftCount +
+      materialsCount;
+
     // Display the total word count
     document.getElementById("totalWordCount").innerText = `Total word count: ${totalWordCount}`;
   }
+
   // Run the function for specific sections and display total count when the page loads
-  window.onload = displayTotalWordCount;
+  window.onload = () => {
+    // Display total word count on load
+    displayTotalWordCount();
+    // Keep other onload functions intact
+    getLastUpdatedTime();
+  };
 </script>
+
     </main>
 
 </body>
