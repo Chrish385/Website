@@ -222,11 +222,9 @@
             </article>
 
             <article id="materials">
-                <h3>Materials</h3>
+                <h3>Conclusion</h3>
                 <p>
-                    Materials used in aircraft design are crucial for achieving high-speed performance. Materials must be lightweight and durable while also 
-                    contributing to the aircraft's structural integrity. The use of composite materials, such as carbon fiber and advanced alloys, plays a 
-                    vital role in ensuring that aircraft maintain both performance and strength at higher speeds.
+                   Aero dynamics provides  a pivotal role in design and performance of a modern aircraft. By breaking down how most aircrafts a designed by the fundamental forces, we could how an aircraft my implement certain features to comply with the aerodynamics. Like making the wings lighter and angled. Reaserch into finding more effective ways to make aircrafts more efficient will continue to drive innovation, making aircraft safer and more capable. 
                 </p>
             </article>
         </section>
@@ -314,10 +312,14 @@
   // Function to calculate and display total word count from selected sections
   function displayTotalWordCount() {
     // Calculate word count for each section and accumulate the total
-    const IntroductionCount = displayWordCount("Introduction_InText");
-    const AnalysisCount = displayWordCount("Analysis_InText");
+    const IntroductionCount = displayWordCount("introduction");
+    const Weightcount = displayWordCount("weight")
+    const Dragcount = displayWordCount("Drag")
+    const Liftcount = displayWordCount("Lift")
+    const Thrustcount = displayWordCount("Thrust")
+    const ConclusionCount = displayWordCount("Conclusion");
     // Calculate the sum of all selected sections
-    const totalWordCount = IntroductionCount + AnalysisCount;
+    const totalWordCount = IntroductionCount + Weightcount + Dragcount + Liftcount + Thrustcount + ConclusionCount;
     // Display the total word count
     document.getElementById("totalWordCount").innerText = `Total word count: ${totalWordCount}`;
   }
