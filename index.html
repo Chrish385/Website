@@ -319,14 +319,11 @@
   // Function to calculate and display total word count from selected sections
   function displayTotalWordCount() {
     // Calculate word count for each section and accumulate the total
-    const IntroductionCount = displayWordCount("introduction");
-    const Weightcount = displayWordCount("weight")
-    const Dragcount = displayWordCount("Drag")
-    const Liftcount = displayWordCount("Lift")
-    const Thrustcount = displayWordCount("Thrust")
-    const ConclusionCount = displayWordCount("Conclusion");
+    const IntroductionCount = displayWordCount("introduction"); // For Introduction section
+    const ContentCount = displayWordCount("content");           // For the entire content section
+
     // Calculate the sum of all selected sections
-    const totalWordCount = IntroductionCount + Weightcount + Dragcount + Liftcount + Thrustcount + ConclusionCount;
+    const totalWordCount = IntrodutionCount + ContentCount;
     // Display the total word count
     document.getElementById("totalWordCount").innerText = `Total word count: ${totalWordCount}`;
   }
