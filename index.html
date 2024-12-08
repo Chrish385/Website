@@ -307,10 +307,11 @@
         }
 
         function displayTotalWordCount() {
+            const AbstractCount =displayWordCount("abstract")
             const IntroductionCount = displayWordCount("introduction");
             const ContentCount = displayWordCount("content");
 
-            const totalWordCount = IntroductionCount + ContentCount;
+            const totalWordCount = IntroductionCount + ContentCount + AbstractCount;
             document.getElementById("totalWordCount").innerText = `Total word count: ${totalWordCount}`;
         }
 
